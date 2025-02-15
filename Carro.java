@@ -1,6 +1,8 @@
 public class Carro {
-    // Para cada atributo, é necessário definir o tipo
-    // Java é uma linguagem FORTEMENTE tipada
+    /* 
+    Para cada atributo, é necessário definir o tipo
+    Java é uma linguagem FORTEMENTE tipada
+    */
     String cor;   
     int numeroDePortas;
     String marca;
@@ -9,13 +11,18 @@ public class Carro {
     String placa;
     char tipoCambio; // M - MANUAL, A - AUTOMATICO
     int anoFabricacao;
-    double velocidade;
+    int velocidade;
+    int velocidadeMaxima;
 
     
     public void acelerar() { // asinatura do método
-        
-        velocidade += 5;
-        System.out.println("Acelerando para: " + velocidade);
+        if (velocidade + 10 > velocidadeMaxima) {
+            velocidade = 30;
+            System.out.println("Velocidade Maxima atingida");
+        } else {
+            velocidade += 10;
+            System.out.println("Acelerando para: " + velocidade);
+        }
     }
 
     public void frear() {
@@ -31,6 +38,14 @@ public class Carro {
         
     }
 
+    void velocidadeAtual() {
+        System.out.println("Velocidade atual: " + velocidade);
+    }
+
+    int getNumeroDePortas() {
+        return numeroDePortas;
+    }
+
     public static void main(String[] args) {
         // acelerar(); não é possivel chamar um metodo nao estatico sem criar o objeto
 
@@ -40,8 +55,26 @@ public class Carro {
         carroPopular = new Carro(); // é necessário CRIAR a instância
         carroDeLuxo = new Carro();
 
-        carroPopular.acelerar();
-        carroDeLuxo.frear();
+
+        carroPopular.cor = "Prata";
+        carroPopular.modelo = "Uno";
+
+        carroDeLuxo.modelo = "Ferrari";
+        carroDeLuxo.cor = "Vermelho";
+        carroDeLuxo.velocidadeMaxima = 30;
+
+        carroDeLuxo.acelerar();
+        carroDeLuxo.acelerar();
+        carroDeLuxo.acelerar();
+        carroDeLuxo.acelerar();
+
+        System.out.println("Numero de portas: " + carroDeLuxo.getNumeroDePortas());
+
+        System.out.println("Modelo: " + carroPopular.modelo);
+        System.out.println("Modelo: " + carroDeLuxo.modelo);
+
+        System.out.println("Cor: " + carroPopular.cor);
+        System.out.println("Cor: " + carroDeLuxo.cor);
 
     }
 
