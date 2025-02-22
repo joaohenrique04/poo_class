@@ -9,6 +9,10 @@ public class Robo {
     String tipo;
     
     Robo() {}
+
+    Robo(String nome) {
+        this.setNome(nome);
+    }
     
     Robo(String nome, String[] cor) {
         this.setNome(nome);
@@ -25,12 +29,6 @@ public class Robo {
         this.setNome(nome);
         this.setBateria(cargaInicialBateria);
         this.setCor(cor);
-    }
-    
-    
-    void falarNome() {
-        System.out.println("Olá, sou "+this.nome);
-        this.cargaBateria -= 1;
     }
     
     void setNome(String nome) {
@@ -56,6 +54,22 @@ public class Robo {
    
     int getCargaBateria() {
         return this.cargaBateria;
+    }
+
+    void printCores() {
+        for (int i = 0; i < this.cores.length; i++) {
+            System.out.println(this.cores[i]);
+        }
+    }
+
+    void falarNome() {
+        if (this.cargaBateria > 0) {
+            System.out.println("Olá, sou "+this.nome);
+            this.cargaBateria -= 1;
+        } else {
+            System.out.println("Descarregado :(");
+        }
+        
     }
    
     public static void main(String[] args) {
