@@ -43,14 +43,14 @@ public class Robo {
     }
 
     void setCor(String[] cor) {
-        this.cor = cor;
+        this.cores = cor;
     }
 
     void setBateria(int bateria) {
         if (bateria < 0 || bateria > 100) {
             System.out.println("Carga inválida");
         } else {
-            this.bateria = bateria;
+            this.cargaBateria = bateria;
         }
     }
    
