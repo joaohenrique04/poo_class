@@ -3,12 +3,18 @@
 import java.util.Scanner;
 
 public class Robo {
+    static int qtdRobosCriados;
+    
     String nome;
     String[] cores;
     int cargaBateria = 10;
     String tipo;
     
-    Robo() {}
+    static double PRECO = 129.90;
+    
+    Robo() {
+        this.qtdRobosCriados += 1;
+    }
 
     Robo(String nome) {
         this.setNome(nome);
@@ -56,6 +62,10 @@ public class Robo {
         return this.cargaBateria;
     }
 
+    double getPreco() {
+        return this.PRECO;
+    }
+
     void printCores() {
         for (int i = 0; i < this.cores.length; i++) {
             System.out.println(this.cores[i]);
@@ -87,6 +97,10 @@ public class Robo {
         System.out.println("Bateria do Lutador: " + roboLutador.getCargaBateria());
         
         System.out.println("Bateria do Aspirador: " + roboAspirador.getCargaBateria());
+
+        Robo roboPolicial = new Robo();
+
+        System.out.println(roboAspirador.qtdRobosCriados);
        
    }
 }

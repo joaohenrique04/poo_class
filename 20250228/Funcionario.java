@@ -1,5 +1,3 @@
-
-
 public class Funcionario {
     static double valorHora = 40.00;
     
